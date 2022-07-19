@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\Schema;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -23,6 +24,20 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        Schema::defaultStringLength(191);
+        $this->registerProviders();
+
+        Schema::defaultStringLength(length:191);
+    }
+
+    /**
+     * @return void
+     */
+    private function registerProviders(): void
+    {
+        foreach (config('providers') as $provider => $options) {
+            if (! $options['enable']) continue;
+
+            $this->app->register($options['provider']);
+        }
     }
 }

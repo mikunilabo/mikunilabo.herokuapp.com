@@ -12,6 +12,9 @@
         "laravel/tinker": "^2.7"
     },
     "require-dev": {
+        "barryvdh/laravel-debugbar": "^3.7",
+        "barryvdh/laravel-ide-helper": "^2.12",
+        "beyondcode/laravel-dump-server": "^1.8",
         "fakerphp/faker": "^1.9.1",
         "laravel/breeze": "^1.11",
         "laravel/sail": "^1.0.1",
@@ -49,7 +52,14 @@
     },
     "extra": {
         "laravel": {
-            "dont-discover": []
+            "dont-discover": [
+                "barryvdh/laravel-debugbar",
+                "barryvdh/laravel-ide-helper",
+                "beyondcode/laravel-dump-server",
+                "laravel/dusk",
+                "laravel/telescope",
+                "nunomaduro/collision"
+            ]
         }
     },
     "config": {
