@@ -23,9 +23,9 @@ Route::middleware(['auth', /*'verified'*/])->group(function () {
 /**
  * Vendor
  */
-Route::prefix($prefix = 'vendor')->namespace($studly = Str::studly($prefix))->name(sprintf('%s.', Str::snake($studly)))->group(function () {
-    Route::prefix($prefix = 'line')->namespace($studly = Str::studly($prefix))->name(sprintf('%s.', Str::snake($studly)))->group(function () {
-        Route::post($name = 'webhook', [Controllers\WebhookController::class])->name($name);
+Route::prefix($prefix = 'vendor')/*->namespace($studly = Str::studly($prefix))*/->name(sprintf('%s.', Str::snake(Str::studly($prefix))))->group(function () {
+    Route::prefix($prefix = 'line')/*->namespace($studly = Str::studly($prefix))*/->name(sprintf('%s.', Str::snake(Str::studly($prefix))))->group(function () {
+        Route::post($name = 'webhook', [Controllers\Vendor\Line\WebhookController::class, '__invoke'])->name($name);
     });
 });
 
