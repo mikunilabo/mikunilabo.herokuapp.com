@@ -1,13 +1,14 @@
 <?php
+declare(strict_types=1);
 
-namespace App\Listeners\Various;
+namespace App\Listeners\Vendor\Line\Message;
 
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
-use LINE\LINEBot\Event\VideoPlayCompleteEvent;
+use LINE\LINEBot\Event\MessageEvent\AudioMessage;
 use Revolution\Line\Facades\Bot;
 
-class VideoPlayCompleteEventListener
+class AudioMessageListener
 {
     /**
      * Create the event listener.
@@ -22,10 +23,10 @@ class VideoPlayCompleteEventListener
     /**
      * Handle the event.
      *
-     * @param  VideoPlayCompleteEvent  $event
+     * @param  AudioMessage  $event
      * @return void
      */
-    public function handle(VideoPlayCompleteEvent $event)
+    public function handle(AudioMessage $event)
     {
         //
     }

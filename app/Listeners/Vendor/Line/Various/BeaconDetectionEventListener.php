@@ -1,13 +1,14 @@
 <?php
+declare(strict_types=1);
 
-namespace App\Listeners\Message;
+namespace App\Listeners\Vendor\Line\Various;
 
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
-use LINE\LINEBot\Event\MessageEvent\ImageMessage;
+use LINE\LINEBot\Event\BeaconDetectionEvent;
 use Revolution\Line\Facades\Bot;
 
-class ImageMessageListener
+class BeaconDetectionEventListener
 {
     /**
      * Create the event listener.
@@ -22,10 +23,10 @@ class ImageMessageListener
     /**
      * Handle the event.
      *
-     * @param  ImageMessage  $event
+     * @param  BeaconDetectionEvent  $event
      * @return void
      */
-    public function handle(ImageMessage $event)
+    public function handle(BeaconDetectionEvent $event)
     {
         //
     }

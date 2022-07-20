@@ -1,13 +1,14 @@
 <?php
+declare(strict_types=1);
 
-namespace App\Listeners\Various;
+namespace App\Listeners\Vendor\Line\Various;
 
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
-use LINE\LINEBot\Event\MemberJoinEvent;
+use LINE\LINEBot\Event\UnfollowEvent;
 use Revolution\Line\Facades\Bot;
 
-class MemberJoinEventListener
+class UnfollowEventListener
 {
     /**
      * Create the event listener.
@@ -22,10 +23,10 @@ class MemberJoinEventListener
     /**
      * Handle the event.
      *
-     * @param  MemberJoinEvent  $event
+     * @param  UnfollowEvent  $event
      * @return void
      */
-    public function handle(MemberJoinEvent $event)
+    public function handle(UnfollowEvent $event)
     {
         //
     }

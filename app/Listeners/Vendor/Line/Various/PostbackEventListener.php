@@ -1,13 +1,14 @@
 <?php
+declare(strict_types=1);
 
-namespace App\Listeners\Various;
+namespace App\Listeners\Vendor\Line\Various;
 
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
-use LINE\LINEBot\Event\UnknownEvent;
+use LINE\LINEBot\Event\PostbackEvent;
 use Revolution\Line\Facades\Bot;
 
-class UnknownEventListener
+class PostbackEventListener
 {
     /**
      * Create the event listener.
@@ -22,10 +23,10 @@ class UnknownEventListener
     /**
      * Handle the event.
      *
-     * @param  UnknownEvent  $event
+     * @param  PostbackEvent  $event
      * @return void
      */
-    public function handle(UnknownEvent $event)
+    public function handle(PostbackEvent $event)
     {
         //
     }

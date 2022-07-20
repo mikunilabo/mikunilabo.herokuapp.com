@@ -1,13 +1,14 @@
 <?php
+declare(strict_types=1);
 
-namespace App\Listeners\Various;
+namespace App\Listeners\Vendor\Line\Various;
 
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
-use LINE\LINEBot\Event\MemberLeaveEvent;
+use LINE\LINEBot\Event\UnknownEvent;
 use Revolution\Line\Facades\Bot;
 
-class MemberLeaveEventListener
+class UnknownEventListener
 {
     /**
      * Create the event listener.
@@ -22,10 +23,10 @@ class MemberLeaveEventListener
     /**
      * Handle the event.
      *
-     * @param  MemberLeaveEvent  $event
+     * @param  UnknownEvent  $event
      * @return void
      */
-    public function handle(MemberLeaveEvent $event)
+    public function handle(UnknownEvent $event)
     {
         //
     }

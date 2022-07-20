@@ -1,13 +1,14 @@
 <?php
+declare(strict_types=1);
 
-namespace App\Listeners\Message;
+namespace App\Listeners\Vendor\Line\Various;
 
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
-use LINE\LINEBot\Event\MessageEvent\LocationMessage;
+use LINE\LINEBot\Event\AccountLinkEvent;
 use Revolution\Line\Facades\Bot;
 
-class LocationMessageListener
+class AccountLinkEventListener
 {
     /**
      * Create the event listener.
@@ -22,10 +23,10 @@ class LocationMessageListener
     /**
      * Handle the event.
      *
-     * @param  LocationMessage  $event
+     * @param  AccountLinkEvent  $event
      * @return void
      */
-    public function handle(LocationMessage $event)
+    public function handle(AccountLinkEvent $event)
     {
         //
     }

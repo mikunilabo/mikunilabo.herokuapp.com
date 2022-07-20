@@ -1,13 +1,14 @@
 <?php
+declare(strict_types=1);
 
-namespace App\Listeners\Various;
+namespace App\Listeners\Vendor\Line\Various;
 
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
-use LINE\LINEBot\Event\PostbackEvent;
+use LINE\LINEBot\Event\MemberJoinEvent;
 use Revolution\Line\Facades\Bot;
 
-class PostbackEventListener
+class MemberJoinEventListener
 {
     /**
      * Create the event listener.
@@ -22,10 +23,10 @@ class PostbackEventListener
     /**
      * Handle the event.
      *
-     * @param  PostbackEvent  $event
+     * @param  MemberJoinEvent  $event
      * @return void
      */
-    public function handle(PostbackEvent $event)
+    public function handle(MemberJoinEvent $event)
     {
         //
     }

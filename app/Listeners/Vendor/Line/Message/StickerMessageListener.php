@@ -1,6 +1,7 @@
 <?php
+declare(strict_types=1);
 
-namespace App\Listeners\Message;
+namespace App\Listeners\Vendor\Line\Message;
 
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
@@ -28,9 +29,11 @@ class StickerMessageListener
      */
     public function handle(StickerMessage $event)
     {
-        $packageId = $event->getPackageId();
-        $stickerId = $event->getStickerId();
+        Bot::replyText($event->getReplyToken(), 'すみません、文字で入力していただけますか..💦');
 
-        Bot::replyMessage($event->getReplyToken(), new StickerMessageBuilder($packageId, $stickerId));
+//         $packageId = $event->getPackageId();
+//         $stickerId = $event->getStickerId();
+
+//         Bot::replyMessage($event->getReplyToken(), new StickerMessageBuilder($packageId, $stickerId));
     }
 }

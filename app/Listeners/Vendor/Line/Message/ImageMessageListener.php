@@ -1,13 +1,14 @@
 <?php
+declare(strict_types=1);
 
-namespace App\Listeners\Message;
+namespace App\Listeners\Vendor\Line\Message;
 
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
-use LINE\LINEBot\Event\MessageEvent\UnknownMessage;
+use LINE\LINEBot\Event\MessageEvent\ImageMessage;
 use Revolution\Line\Facades\Bot;
 
-class UnknownMessageListener
+class ImageMessageListener
 {
     /**
      * Create the event listener.
@@ -22,10 +23,10 @@ class UnknownMessageListener
     /**
      * Handle the event.
      *
-     * @param  UnknownMessage  $event
+     * @param  ImageMessage  $event
      * @return void
      */
-    public function handle(UnknownMessage $event)
+    public function handle(ImageMessage $event)
     {
         //
     }

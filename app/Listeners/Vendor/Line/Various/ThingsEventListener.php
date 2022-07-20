@@ -1,13 +1,14 @@
 <?php
+declare(strict_types=1);
 
-namespace App\Listeners\Various;
+namespace App\Listeners\Vendor\Line\Various;
 
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
-use LINE\LINEBot\Event\UnfollowEvent;
+use LINE\LINEBot\Event\ThingsEvent;
 use Revolution\Line\Facades\Bot;
 
-class UnfollowEventListener
+class ThingsEventListener
 {
     /**
      * Create the event listener.
@@ -22,10 +23,10 @@ class UnfollowEventListener
     /**
      * Handle the event.
      *
-     * @param  UnfollowEvent  $event
+     * @param  ThingsEvent  $event
      * @return void
      */
-    public function handle(UnfollowEvent $event)
+    public function handle(ThingsEvent $event)
     {
         //
     }

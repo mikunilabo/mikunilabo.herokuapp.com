@@ -1,13 +1,14 @@
 <?php
+declare(strict_types=1);
 
-namespace App\Listeners\Various;
+namespace App\Listeners\Vendor\Line\Various;
 
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
-use LINE\LINEBot\Event\AccountLinkEvent;
+use LINE\LINEBot\Event\FollowEvent;
 use Revolution\Line\Facades\Bot;
 
-class AccountLinkEventListener
+class FollowEventListener
 {
     /**
      * Create the event listener.
@@ -22,10 +23,10 @@ class AccountLinkEventListener
     /**
      * Handle the event.
      *
-     * @param  AccountLinkEvent  $event
+     * @param  FollowEvent  $event
      * @return void
      */
-    public function handle(AccountLinkEvent $event)
+    public function handle(FollowEvent $event)
     {
         //
     }

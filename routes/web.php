@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,10 +23,10 @@ Route::middleware(['auth', /*'verified'*/])->group(function () {
 /**
  * Vendor
  */
-//Route::prefix($prefix = 'vendor')->namespace($studly = Str::studly($prefix))->name(sprintf('%s.', Str::snake($studly)))->group(function () {
-//    Route::prefix($prefix = 'line')->namespace($studly = Str::studly($prefix))->name(sprintf('%s.', Str::snake($studly)))->group(function () {
-//        Route::post($name = 'webhook', 'WebhookController')->name($name);
-//    });
-//});
+Route::prefix($prefix = 'vendor')->namespace($studly = Str::studly($prefix))->name(sprintf('%s.', Str::snake($studly)))->group(function () {
+    Route::prefix($prefix = 'line')->namespace($studly = Str::studly($prefix))->name(sprintf('%s.', Str::snake($studly)))->group(function () {
+        Route::post($name = 'webhook', [Controllers\WebhookController::class])->name($name);
+    });
+});
 
 require __DIR__.'/auth.php';

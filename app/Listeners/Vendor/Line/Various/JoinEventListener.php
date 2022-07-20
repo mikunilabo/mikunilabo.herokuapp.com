@@ -1,13 +1,14 @@
 <?php
+declare(strict_types=1);
 
-namespace App\Listeners\Message;
+namespace App\Listeners\Vendor\Line\Various;
 
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
-use LINE\LINEBot\Event\MessageEvent\VideoMessage;
+use LINE\LINEBot\Event\JoinEvent;
 use Revolution\Line\Facades\Bot;
 
-class VideoMessageListener
+class JoinEventListener
 {
     /**
      * Create the event listener.
@@ -22,10 +23,10 @@ class VideoMessageListener
     /**
      * Handle the event.
      *
-     * @param  VideoMessage  $event
+     * @param  JoinEvent  $event
      * @return void
      */
-    public function handle(VideoMessage $event)
+    public function handle(JoinEvent $event)
     {
         //
     }

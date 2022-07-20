@@ -1,13 +1,14 @@
 <?php
+declare(strict_types=1);
 
-namespace App\Listeners\Various;
+namespace App\Listeners\Vendor\Line\Various;
 
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
-use LINE\LINEBot\Event\BeaconDetectionEvent;
+use LINE\LINEBot\Event\MemberLeaveEvent;
 use Revolution\Line\Facades\Bot;
 
-class BeaconDetectionEventListener
+class MemberLeaveEventListener
 {
     /**
      * Create the event listener.
@@ -22,10 +23,10 @@ class BeaconDetectionEventListener
     /**
      * Handle the event.
      *
-     * @param  BeaconDetectionEvent  $event
+     * @param  MemberLeaveEvent  $event
      * @return void
      */
-    public function handle(BeaconDetectionEvent $event)
+    public function handle(MemberLeaveEvent $event)
     {
         //
     }

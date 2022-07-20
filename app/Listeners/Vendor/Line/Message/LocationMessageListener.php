@@ -1,13 +1,14 @@
 <?php
+declare(strict_types=1);
 
-namespace App\Listeners\Various;
+namespace App\Listeners\Vendor\Line\Message;
 
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
-use LINE\LINEBot\Event\JoinEvent;
+use LINE\LINEBot\Event\MessageEvent\LocationMessage;
 use Revolution\Line\Facades\Bot;
 
-class JoinEventListener
+class LocationMessageListener
 {
     /**
      * Create the event listener.
@@ -22,10 +23,10 @@ class JoinEventListener
     /**
      * Handle the event.
      *
-     * @param  JoinEvent  $event
+     * @param  LocationMessage  $event
      * @return void
      */
-    public function handle(JoinEvent $event)
+    public function handle(LocationMessage $event)
     {
         //
     }
