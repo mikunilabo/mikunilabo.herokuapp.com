@@ -13,12 +13,19 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::view('/', $name = 'welcome')->name($name);
+
+Route::middleware(['auth', /*'verified'*/])->group(function () {
+    Route::view($name = 'dashboard', $name)->name($name);
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+/**
+ * Vendor
+ */
+//Route::prefix($prefix = 'vendor')->namespace($studly = Str::studly($prefix))->name(sprintf('%s.', Str::snake($studly)))->group(function () {
+//    Route::prefix($prefix = 'line')->namespace($studly = Str::studly($prefix))->name(sprintf('%s.', Str::snake($studly)))->group(function () {
+//        Route::post($name = 'webhook', 'WebhookController')->name($name);
+//    });
+//});
 
 require __DIR__.'/auth.php';
