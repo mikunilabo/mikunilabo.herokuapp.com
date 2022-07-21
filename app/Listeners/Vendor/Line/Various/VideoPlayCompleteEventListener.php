@@ -11,18 +11,6 @@ use Revolution\Line\Facades\Bot;
 class VideoPlayCompleteEventListener
 {
     /**
-     * Create the event listener.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        //
-    }
-
-    /**
-     * Handle the event.
-     *
      * @param  VideoPlayCompleteEvent  $event
      * @return void
      */

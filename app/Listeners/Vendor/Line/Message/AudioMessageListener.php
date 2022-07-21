@@ -11,18 +11,6 @@ use Revolution\Line\Facades\Bot;
 class AudioMessageListener
 {
     /**
-     * Create the event listener.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        //
-    }
-
-    /**
-     * Handle the event.
-     *
      * @param  AudioMessage  $event
      * @return void
      */

@@ -11,18 +11,6 @@ use Revolution\Line\Facades\Bot;
 class PostbackEventListener
 {
     /**
-     * Create the event listener.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        //
-    }
-
-    /**
-     * Handle the event.
-     *
      * @param  PostbackEvent  $event
      * @return void
      */

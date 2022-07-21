@@ -16,8 +16,6 @@ class TextMessageListener
     private $event;
 
     /**
-     * Handle the event.
-     *
      * @param  TextMessage  $event
      * @return void
      */

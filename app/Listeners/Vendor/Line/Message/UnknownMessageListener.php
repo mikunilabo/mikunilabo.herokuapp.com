@@ -11,18 +11,6 @@ use Revolution\Line\Facades\Bot;
 class UnknownMessageListener
 {
     /**
-     * Create the event listener.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        //
-    }
-
-    /**
-     * Handle the event.
-     *
      * @param  UnknownMessage  $event
      * @return void
      */

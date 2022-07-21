@@ -11,18 +11,6 @@ use Revolution\Line\Facades\Bot;
 class LocationMessageListener
 {
     /**
-     * Create the event listener.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        //
-    }
-
-    /**
-     * Handle the event.
-     *
      * @param  LocationMessage  $event
      * @return void
      */

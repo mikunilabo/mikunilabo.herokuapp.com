@@ -16,8 +16,6 @@ class ImageMessageListener
     private $event;
 
     /**
-     * Handle the event.
-     *
      * @param  ImageMessage  $event
      * @return void
      */

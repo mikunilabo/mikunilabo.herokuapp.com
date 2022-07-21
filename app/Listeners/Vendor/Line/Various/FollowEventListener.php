@@ -11,18 +11,6 @@ use Revolution\Line\Facades\Bot;
 class FollowEventListener
 {
     /**
-     * Create the event listener.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        //
-    }
-
-    /**
-     * Handle the event.
-     *
      * @param  FollowEvent  $event
      * @return void
      */

@@ -12,18 +12,6 @@ use Revolution\Line\Facades\Bot;
 class StickerMessageListener
 {
     /**
-     * Create the event listener.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        //
-    }
-
-    /**
-     * Handle the event.
-     *
      * @param  StickerMessage  $event
      * @return void
      */
