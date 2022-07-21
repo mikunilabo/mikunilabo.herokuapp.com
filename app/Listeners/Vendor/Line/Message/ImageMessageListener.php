@@ -11,14 +11,9 @@ use Revolution\Line\Facades\Bot;
 class ImageMessageListener
 {
     /**
-     * Create the event listener.
-     *
-     * @return void
+     * @var TextMessage
      */
-    public function __construct()
-    {
-        //
-    }
+    private $event;
 
     /**
      * Handle the event.

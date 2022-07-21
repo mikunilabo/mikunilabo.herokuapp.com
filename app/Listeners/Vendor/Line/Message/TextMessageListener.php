@@ -11,14 +11,9 @@ use Revolution\Line\Facades\Bot;
 class TextMessageListener
 {
     /**
-     * Create the event listener.
-     *
-     * @return void
+     * @var TextMessage
      */
-    public function __construct()
-    {
-        //
-    }
+    private $event;
 
     /**
      * Handle the event.
@@ -28,7 +23,9 @@ class TextMessageListener
      */
     public function handle(TextMessage $event)
     {
-        $response = Bot::replyText($event->getReplyToken(), $this->message());
+        $this->event = $event;
+
+        $response = Bot::replyText($this->event->getReplyToken(), $this->message());
 
         if (! $response->isSucceeded()) {
             logger()->error(static::class.$response->getHTTPStatus(), $response->getJSONDecodedBody());
@@ -39,6 +36,32 @@ class TextMessageListener
      * @return string
      */
     private function message(): string
+    {
+        return $this->parseMessage();
+    }
+
+    /**
+     * @return string
+     */
+    private function parseMessage(): string
+    {
+        switch ($text = $this->event->getText()) {
+            case '査定':
+            case '商品履歴':
+            case '検品':
+            case '卸登録':
+            case 'メッセージ':
+            case 'お知らせ':
+                return sprintf('%sですね！現在未実装です。', $text);
+            default:
+                return $this->randomReply();
+        }
+    }
+
+    /**
+     * @return string
+     */
+    private function randomReply(): string
     {
         switch (mt_rand(0, 2)) {
             case 0:
