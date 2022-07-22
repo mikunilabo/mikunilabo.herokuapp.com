@@ -7,6 +7,7 @@ use App\Events\Vendor\Line\ReceivedWebhook;
 use App\Http\Controllers\Controller;
 use App\Services\Vendor\Line\Line;// TODO XXX ファサード経由でサービスプロバイダへ登録したが、何故か実装クラスがNot Foundとなり要調査なので、一旦実装クラスを直接呼び出す...
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 //use LINE;// TODO XXX ファサード経由でサービスプロバイダへ登録したが、何故か実装クラスがNot Foundとなり要調査なので、一旦実装クラスを直接呼び出す...
 
 class WebhookController extends Controller
@@ -27,12 +28,12 @@ class WebhookController extends Controller
 
     /**
      * @param Request $request
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\Routing\ResponseFactory|\Illuminate\Http\Response
+     * @return Response
      */
     public function __invoke(Request $request)
     {
         $signature = $request->headers->get($this->line::signature());
-        $events = $this->line->parseEvent($request->getContent(), $signature);
+        $events = $this->line->bot()->parseEventRequest($request->getContent(), $signature);
 
         event(new ReceivedWebhook($events));
 

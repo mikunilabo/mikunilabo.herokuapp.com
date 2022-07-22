@@ -3,10 +3,10 @@ declare(strict_types=1);
 
 namespace App\Listeners\Vendor\Line\Message;
 
-use Illuminate\Contracts\Queue\ShouldQueue;
+use App\Services\Vendor\Line\Line;
 use Illuminate\Queue\InteractsWithQueue;
+use Illuminate\Contracts\Queue\ShouldQueue;
 use LINE\LINEBot\Event\MessageEvent\UnknownMessage;
-use Revolution\Line\Facades\Bot;
 
 class UnknownMessageListener
 {

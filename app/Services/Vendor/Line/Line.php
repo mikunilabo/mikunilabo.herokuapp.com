@@ -40,37 +40,10 @@ class Line
     /**
      * @param string $body
      * @param string $signature
-     * @return mixed
+     * @return LINEBot
      */
-    public function parseEvent(string $body, string $signature)
+    public function bot(): LINEBot
     {
-        return $this->bot->parseEventRequest($body, $signature);
+        return $this->bot;
     }
-
-    // /**
-    //  * @param string $token
-    //  * @return bool
-    //  * @throws UnexpectedResponseException
-    //  */
-    // public function verify(string $token): bool
-    // {
-    //     $response = $this->client->get($this->url, [
-    //         'query' => [
-    //             'secret' => $this->secret,
-    //             'response' => $token,
-    //         ],
-    //     ]);
-
-    //     $contents = json_decode($response->getBody()->getContents());
-
-    //     if (($statusCode = $response->getStatusCode()) !== 200) {
-    //         $id = Str::orderedUuid();
-    //         $message = sprintf('The response status code from Google reCAPTCHA API is unexpected. [allowd: 200] [Returned code: %s] [log_id: %s]', $statusCode, $id);
-    //         logger()->error($message, (array)$response);
-
-    //         throw new UnexpectedResponseException(sprintf('%s [response: %s]', $message, $contents), $statusCode);
-    //     }
-
-    //     return $contents->success;
-    // }
 }

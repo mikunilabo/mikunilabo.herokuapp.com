@@ -4,14 +4,28 @@ declare(strict_types=1);
 namespace App\Listeners\Vendor\Line;
 
 use App\Events\Vendor\Line\ReceivedWebhook;
+use App\Services\Vendor\Line\Line;
 // use Illuminate\Http\Request;
 // use Illuminate\Queue\InteractsWithQueue;
 // use Illuminate\Contracts\Queue\ShouldQueue;
 // use Illuminate\Support\Facades\Notification;
-use Revolution\Line\Facades\Bot;
 
 final class WebhookListener
 {
+    /**
+     * @var Line
+     */
+    private $line;
+
+    /**
+     * @param Line $line
+     * @return void
+     */
+    public function __construct(Line $line)
+    {
+        $this->line = $line;
+    }
+
     /**
      * @param ReceivedWebhook $event
      * @return void
@@ -62,7 +76,7 @@ final class WebhookListener
                             break 2;// 最初のループを抜ける
                     }
                 default:
-                    Bot::replyText($e->getReplyToken(), 'すみません、本LINE公式アカウントでは、対応出来ないアクションです...');
+                    $this->line->bot()->replyText($e->getReplyToken(), 'すみません、本LINE公式アカウントでは、対応出来ないアクションです...');
             }
         }
         return response('', 200);// XXX LINE側にHTTPステータス200を返す必要あり

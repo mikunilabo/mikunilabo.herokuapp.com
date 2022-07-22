@@ -3,10 +3,10 @@ declare(strict_types=1);
 
 namespace App\Listeners\Vendor\Line\Various;
 
-use Illuminate\Contracts\Queue\ShouldQueue;
-use Illuminate\Queue\InteractsWithQueue;
 use LINE\LINEBot\Event\JoinEvent;
-use Revolution\Line\Facades\Bot;
+use App\Services\Vendor\Line\Line;
+use Illuminate\Queue\InteractsWithQueue;
+use Illuminate\Contracts\Queue\ShouldQueue;
 
 class JoinEventListener
 {

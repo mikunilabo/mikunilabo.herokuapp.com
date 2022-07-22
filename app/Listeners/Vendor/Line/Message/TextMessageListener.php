@@ -3,13 +3,27 @@ declare(strict_types=1);
 
 namespace App\Listeners\Vendor\Line\Message;
 
-use Illuminate\Contracts\Queue\ShouldQueue;
+use App\Services\Vendor\Line\Line;
 use Illuminate\Queue\InteractsWithQueue;
+use Illuminate\Contracts\Queue\ShouldQueue;
 use LINE\LINEBot\Event\MessageEvent\TextMessage;
-use Revolution\Line\Facades\Bot;
 
 class TextMessageListener
 {
+    /**
+     * @var Line
+     */
+    private $line;
+
+    /**
+     * @param Line $line
+     * @return void
+     */
+    public function __construct(Line $line)
+    {
+        $this->line = $line;
+    }
+
     /**
      * @var TextMessage
      */
@@ -23,7 +37,7 @@ class TextMessageListener
     {
         $this->event = $event;
 
-        $response = Bot::replyText($this->event->getReplyToken(), $this->message());
+        $response = $this->line->bot()->replyText($this->event->getReplyToken(), $this->message());
 
         if (! $response->isSucceeded()) {
             logger()->error(static::class.$response->getHTTPStatus(), $response->getJSONDecodedBody());
