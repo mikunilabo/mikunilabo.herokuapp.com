@@ -183,8 +183,9 @@ return [
         Illuminate\View\ViewServiceProvider::class,
 
         /*
-         * Package Service Providers...
+         * Vendor Service Providers...
          */
+        App\Providers\LineServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -209,7 +210,7 @@ return [
     */
 
     'aliases' => Facade::defaultAliases()->merge([
-        // 'ExampleClass' => App\Example\ExampleClass::class,
+        'Line' => App\Facades\Line::class,
     ])->toArray(),
 
 ];
