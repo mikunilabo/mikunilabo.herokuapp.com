@@ -25,6 +25,7 @@ return new class extends Migration
                 $table->string('subject')->nullable();
                 $table->text('content')->nullable();
                 $table->timestamps();
+                $table->softDeletes();
 
                 $table->foreign('global_remark_id')
                     ->references('id')

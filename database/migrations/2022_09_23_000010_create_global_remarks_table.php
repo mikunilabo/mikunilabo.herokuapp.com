@@ -23,9 +23,8 @@ return new class extends Migration
                 $table->id();
                 $table->string('name')->nullable();
                 $table->string('key')->nullable();
-                $table->string('subject')->nullable();
-                $table->text('content')->nullable();
                 $table->timestamps();
+                $table->softDeletes();
 
                 $table->unique([
                     'name',
